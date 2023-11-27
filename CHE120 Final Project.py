@@ -28,7 +28,13 @@ paddle_speed = 5
 left_score = 0
 right_score = 0
 
+menuscreen = True
+
 font = pygame.font.Font(None, 36)
+
+# while menuscreen == True:
+    `   `   ``
+
 
 def draw_objects():
     # Draw paddles and ball
@@ -43,17 +49,23 @@ def draw_objects():
     screen.blit(right_text, (3 * WIDTH // 4 - right_text.get_width(), 20))
 
 # Game loop
-while True:
+while menuscreen == False:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
 
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_UP] and right_paddle_pos[1] > 0:
+    playeronekeys = pygame.key.get_pressed()
+    if playeronekeys[pygame.K_UP] and right_paddle_pos[1] > 0:
         right_paddle_pos[1] -= paddle_speed
-    if keys[pygame.K_DOWN] and right_paddle_pos[1] < HEIGHT - PADDLE_HEIGHT:
+    if playeronekeys[pygame.K_DOWN] and right_paddle_pos[1] < HEIGHT - PADDLE_HEIGHT:
         right_paddle_pos[1] += paddle_speed
+
+    playertwokeys = pygame.key.get_pressed()
+    if playertwokeys[pygame.K_w] and left_paddle_pos[1] > 0:
+        left_paddle_pos[1] -= paddle_speed
+    if playertwokeys[pygame.K_s] and left_paddle_pos[1] < HEIGHT - PADDLE_HEIGHT:
+        left_paddle_pos[1] += paddle_speed
 
     # Update ball position
     ball_pos[0] += ball_speed[0]
