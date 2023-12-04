@@ -29,11 +29,15 @@ left_score = 0
 right_score = 0
 
 menuscreen = True
+startgame = 
 
 font = pygame.font.Font(None, 36)
 
-# while menuscreen == True:
-    `   `   ``
+while menuscreen == True:
+
+
+    screen.fill((0, 0, 0))
+    
 
 
 def draw_objects():
